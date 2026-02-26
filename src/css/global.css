@@ -1,0 +1,118 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    min-width: fit-content;
+    background-color: #FFD3D5;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: "Chula";
+    font-weight: 400;
+    user-select: none;
+}
+
+h2 {
+    font-family: "Chula";
+    font-weight: 400;
+    user-select: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    height: 40px;
+}
+
+th {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    user-select: none;
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 5px;
+    border-left: #ccc solid 1px;
+    border-right: #ccc solid 1px;
+}
+
+td:hover {
+    outline: #FFAA00 solid 2px;
+}
+
+.apply_rows_pattern:nth-child(even) td {
+    background-color: #ffffff;
+}
+
+.apply_rows_pattern:nth-child(odd) td {
+    background-color: #f0f0f0;
+}
+
+#main_space {
+    z-index: 500;
+    width: 100%;
+    min-width: 720px;
+    height: 100%;
+    padding: 1rem;
+    overflow: scroll;
+    animation: opacity_fadeIn 0.5s ease-out;
+}
+
+#main_table {
+    width: fit-content;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    overflow: hidden;
+    filter: drop-shadow(5px 5px 10px #00000080);
+}
+
+::selection {
+    color: #FFFFFF;
+    background-color: rgba(0.5, 0.5, 0.5, 0.5);
+}
+
+@font-face {
+    font-family: "Chula";
+    src: url("../assets/fonts/CUreg.otf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Chula";
+    src: url("../assets/fonts/CUbold.otf");
+    font-weight: 700;
+}
+
+@keyframes opacity_fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blur_fadeIn {
+  from {
+    filter: blur(30px);
+  }
+  to {
+    filter: none;
+  }
+}
