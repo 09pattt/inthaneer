@@ -1,6 +1,8 @@
 <?php
 
-require 'features/connect.php';
+$page_name = "การลงสมัคร";
+
+require APP_DIR . '/app/features/connect.php';
 
 $enrolledStmt = $pdo->query("SELECT * FROM enrolled");
 
@@ -11,7 +13,7 @@ $interval = 1;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require 'components/header.php'; ?>
+    <?php require APP_DIR . '/app/components/header.php'; ?>
     <style>
         body {
             background-color: #FFF2D0;
@@ -23,7 +25,7 @@ $interval = 1;
     </style>
 </head>
 <body>
-    <?php require 'components/navside.php'; ?>
+    <?php require APP_DIR . '/app/components/navside.php'; ?>
     
     <div id="main_space">
         <h1>บันทึกการลงสมัคร</h1>

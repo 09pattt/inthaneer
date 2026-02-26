@@ -2,14 +2,38 @@ nav {
     z-index: 900;
     width: 100%;
     height: 100%;
-    padding: 1rem;
-
-    background-color: #202040;
-    backdrop-filter: blur(15px);
-
     color: #FAFAFA;
+    background-color: #F2F2F2;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    filter: drop-shadow(0 0 10px #0008);
+}
 
+nav header {
+    padding: 1rem;
+    background-color: #202040;
+    width: 100%;
+    height: fit-content;
+}
+
+nav main {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
     overflow: scroll;
+    color: #202040;
+}
+
+nav footer {
+    padding: 1rem;
+    width: 100%;
+    height: fit-content;
+    background-color: #202040;
+}
+
+nav footer h3 {
+    color: #FAFAFA;
 }
 
 nav h1 {
@@ -18,6 +42,13 @@ nav h1 {
     font-weight: 700;
     text-align: start;
     filter: drop-shadow(0 0 10px #E491C9);
+}
+
+nav h2 {
+    font-family: "Chula";
+    font-weight: 700;
+    color: #202040;
+    filter: drop-shadow(0 0 10px #404080);
 }
 
 nav h3 {
@@ -43,13 +74,13 @@ nav p {
 }
 
 .nav_button:hover {
-    background-color: #CECECE;
+    background-color: #202040;
     padding-left: 5px;
     transition: all 200ms ease;
 }
 
 .nav_button:hover a {
-    color: #202040;
+    color: #FAFAFA;
 }
 
 .nav_button a {
@@ -61,4 +92,15 @@ nav p {
     align-items: center;
     justify-content: start;
     display: flex;
+    user-select: none;
+}
+
+#selected {
+    pointer-events: none;
+    background-color: #ccc;
+    padding-left: 5px;
+}
+
+#selected a {
+    color: #888;
 }

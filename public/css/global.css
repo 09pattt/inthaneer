@@ -27,8 +27,40 @@ h2 {
     user-select: none;
 }
 
+h3 {
+    font-family: "Chula";
+    font-weight: 400;
+    user-select: none;
+}
+
+a {
+    font-family: "Chula";
+    color: #FFAA00;
+}
+
+p {
+    font-family: "Chula";
+}
+
+strong {
+    font-family: "Chula";
+}
+
 table {
     border-collapse: collapse;
+}
+
+input {
+    transition: all 200ms;
+}
+
+input:hover {
+    outline: #FFAA00 solid 2px;
+}
+
+input:focus {
+    border: none;
+    outline: #802580 solid 2px;
 }
 
 tr {
@@ -74,7 +106,8 @@ td:hover {
 }
 
 #main_table {
-    width: fit-content;
+    /*width: fit-content;*/
+    width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     border-radius: 1rem;
@@ -89,13 +122,13 @@ td:hover {
 
 @font-face {
     font-family: "Chula";
-    src: url("../assets/fonts/CUreg.otf");
+    src: url("/assets/fonts/CUreg.otf");
     font-weight: 400;
 }
 
 @font-face {
     font-family: "Chula";
-    src: url("../assets/fonts/CUbold.otf");
+    src: url("/assets/fonts/CUbold.otf");
     font-weight: 700;
 }
 
