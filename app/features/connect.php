@@ -2,17 +2,17 @@
 
 $host = "db";
 $dbname = "athlete";
-$username = "root";
-$password = "root";
+$dbusername = "root";
+$dbpassword = "tuninthaneer";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $dbusername, $dbpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //echo "🎉 Connected to database successfully!";
 
 } catch (PDOException $e) {
-    echo "❌ Connection failed: " . $e->getMessage();
+    // echo "❌ Connection failed: " . $e->getMessage();
 }
 
 ?>

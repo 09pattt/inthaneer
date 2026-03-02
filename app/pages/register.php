@@ -1,8 +1,6 @@
 <?php
 
-require APP_DIR . '/app/features/connect.php';
-
-$page_name = "เข้าสู่ระบบ";
+$page_name = "ลงทะเบียน";
 
 ?>
 
@@ -85,6 +83,7 @@ $page_name = "เข้าสู่ระบบ";
             padding: 0.5rem;
             border-radius: 0.5rem;
             border: none;
+            background-color: #fafafa;
         }
 
         #submit_button {
@@ -112,29 +111,35 @@ $page_name = "เข้าสู่ระบบ";
         <div id="header_logo_cover">
             <img src="/assets/images/logo/inthanin.png" alt="Inthanin Logo" id="header_logo1" class="header_logo">
         </div>
-        <h1 id="header_title">เข้าสู่ระบบ</h1>
+        <h1 id="header_title">ลงทะเบียน</h1>
         <div style="height: 2rem;"></div>
         <div class="form_space">
             <div class="form">
-                <form action="<?= APP_DIR . '/app/features/insert.php' ?>" method="POST">
+                <form action="/?route=/features/insert/users" method="POST">
                     <header>
-                        <h1>ระบบยืนยันตัวตน</h1>
+                        <h1>ลงทะเบียนเป็นผู้ใช้</h1>
                     </header>
                     <main>
                         <p>
                         <strong>* หมายเหตุ :</strong>
-                        เฉพาะสมาชิกคณะสีอินทนิลหรือผู้ที่ลงทะเบียนไว้เท่านั้น ที่สามารถยืนยันตัวตนเข้าสู่ระบบได้ หากเข้าสู่ระบบไม่ได้ติดต่อฝ่ายช่วยเหลือหรือคลิ๊ก
-                        <a href="/?page=recovery">ฝ่ายช่วยเหลือ</a>
+                        เฉพาะสมาชิกคณะสีอินทนิลที่ระบบลงทะเบียนไว้ให้แล้ว สามารถเข้าสู่ระบบด้วยข้อมูลตามที่คณะสีแจ้งได้เลย หากพบปัญหาที่คาดไม่ถึงติดต่อ
+                        <a href="/?route=/pages/recovery">ฝ่ายช่วยเหลือ</a>
                         </p>
                         <div style="height: 20px;"></div>
+                        <h3>ชื่อจริง</h3>
+                        <input required name="firstname" type="text" placeholder="กรอกชื่อจริง" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['firstname'] : '' ?>">
+                        <div style="height: 20px;"></div>
+                        <h3>นามสกุล</h3>
+                        <input required name="surname" type="text" placeholder="กรอกนามสกุล" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['surname'] : '' ?>">
+                        <div style="height: 20px;"></div>
                         <h3>ชื่อผู้ใช้</h3>
-                        <input required name="username" type="text" placeholder="ชื่อผู้ใช้ที่ลงทะเบียนไว้กับคณะสีอินทนิล">
+                        <input required name="username" type="text" placeholder="กรอกชื่อผู้ใช้" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['username'] : '' ?>">
                         <div style="height: 20px;"></div>
                         <h3>รหัสผ่าน</h3>
-                        <input required name="password" type="password" placeholder="รหัสผ่านที่กำหนดไว้หรือคณะสีกำหนดให้">
-                    </main>
+                        <input required name="password" type="password" placeholder="กรอกรหัสผ่าน" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['password'] : '' ?>">
+                </main>
                     <footer>
-                        <a href="/?page=recovery">พี่ครับ! ผมลืมรหัสผ่าน</a>
+                        <div></div>
                         <button type="submit" id="submit_button">ยืนยัน</button>
                     </footer>
                 </form>

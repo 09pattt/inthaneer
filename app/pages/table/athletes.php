@@ -2,8 +2,6 @@
 
 $page_name = "รายชื่อนักกีฬา";
 
-require APP_DIR . '/app/features/connect.php';
-
 $athleteStmt = $pdo->query("SELECT * FROM athletes");
 
 $interval = 1;

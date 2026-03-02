@@ -1,7 +1,5 @@
 <?php
 
-require APP_DIR . '/app/features/connect.php';
-
 $page_name = "เกี่ยวกับ";
 
 ?>
@@ -9,7 +7,7 @@ $page_name = "เกี่ยวกับ";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require APP_DIR . '/app/components/header.php'; ?>
+    <?php require HEADER; ?>
     <style>
         #header_logo_cover {
             width: 100%;
@@ -102,7 +100,7 @@ $page_name = "เกี่ยวกับ";
     </style>
 </head>
 <body>
-    <?php require APP_DIR . '/app/components/navside.php'; ?>
+    <?php require NAVSIDE; ?>
 
     <div id="main_space">
         <div id="header_logo_cover">
@@ -135,6 +133,7 @@ $page_name = "เกี่ยวกับ";
                 <img src="/assets/images/sponsors/kmitl.png" alt="KMITL" class="images">
             </div>
         </div>
+        <?php require FOOTER; ?>
     </div>
 </body>
 </html>

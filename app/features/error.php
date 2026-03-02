@@ -10,7 +10,7 @@ $page_name = "ข้อผิดพลาด";
     <?php require APP_DIR . '/app/components/header.php'; ?>
     <style>
         body {
-            background-color: #FF8C00;
+            background-color: #FF5A5A;
         }
 
         #url_box {
@@ -90,16 +90,18 @@ $page_name = "ข้อผิดพลาด";
     <?php require APP_DIR . '/app/components/navside.php'; ?>
 
     <div id="main_space">
-        <h1 id="top_title">404 NOT FOUND</h1>
+        <h1 id="top_title">FAILED</h1>
         <div id="url_box">
             <p>https://inthanin.team/?route=<?= $route ?></p>
         </div>
-        <h2 id="top_subtitle">โอ้ะ! ดูเหมือนว่า URL ของเธอจะไม่ถูกต้องนะ พี่คนนี้เลยหาหน้าเว็บไม่เจอ</h2>
+        <h2 id="top_subtitle">
+            <?= $_SESSION['flash']['message'] ?>
+        </h2>
         <div id="top_img_cover">
-            <img src="/assets/images/elements/curious.png" alt="Curious guy" id="top_img">
+            <img src="/assets/images/elements/regret.png" alt="Regretting guy" id="top_img">
         </div>
         <div id="return_button_cover">
-            <a href="/" id="return_button">กลับหน้าแรก</a>
+            <a href="/?route=<?= $_SESSION['flash']['origin'] ?>" id="return_button">ย้อนกลับ</a>
         </div>
     </div>
 </body>

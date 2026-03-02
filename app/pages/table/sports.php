@@ -1,8 +1,6 @@
 <?php
 
-$page = "รายการที่รับสมัคร";
-
-require APP_DIR . '/app/features/connect.php';
+$page_name = "รายการที่รับสมัคร";
 
 $sportsStmt = $pdo->query("SELECT * FROM sports");
 

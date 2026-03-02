@@ -8,6 +8,7 @@ nav {
     display: grid;
     grid-template-rows: auto 1fr auto;
     filter: drop-shadow(0 0 10px #0008);
+    font-family: "Chula";
 }
 
 nav header {
@@ -81,6 +82,7 @@ nav p {
 
 .nav_button:hover a {
     color: #FAFAFA;
+    transition: all 200ms ease;
 }
 
 .nav_button a {
@@ -93,14 +95,50 @@ nav p {
     justify-content: start;
     display: flex;
     user-select: none;
+    transition: all 400ms ease;
 }
 
 #selected {
     pointer-events: none;
     background-color: #ccc;
     padding-left: 5px;
+    animation: opacity_fadeIn 0.5s ease;
 }
 
 #selected a {
     color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main_footer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #808080;
+    border-radius: 1rem;
+    background-color: #f2f2f2aa;
+}
+
+#main_footer > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

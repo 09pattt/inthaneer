@@ -2,8 +2,6 @@
 
 $page_name = "การลงสมัคร";
 
-require APP_DIR . '/app/features/connect.php';
-
 $enrolledStmt = $pdo->query("SELECT * FROM enrolled");
 
 $interval = 1;
