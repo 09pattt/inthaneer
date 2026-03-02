@@ -7,19 +7,27 @@ require APP_DIR . '/app/features/connect.php';
 $page_name = "หน้าเว็บ";
 
 define('NAVSIDE', APP_DIR . '/app/components/navside.php');
-
 define('HEADER', APP_DIR . '/app/components/header.php');
-
 define('FOOTER', APP_DIR . '/app/components/footer.php');
+define('LOGO', APP_DIR . '/app/components/logo.php');
+define('DATALISTS', APP_DIR . '/app/components/datalists.php');
 
 session_start();
 
 $route = $_GET['route'] ?? '/pages/home';
 
 $isLoggedIn = $_SESSION['user']['logged_in'] ?? false;
-$username = $_SESSION['user']['username'] ?? null;
-$firstname = $_SESSION['user']['firstname'] ?? null;
-$surname = $_SESSION['user']['surname'] ?? null;
+
+$userInfo = [
+    'username' => $_SESSION['user']['username'] ?? null,
+    'student_id' => $_SESSION['user']['student_id'] ?? null,
+    'prefix' => $_SESSION['user']['prefix'] ?? null,
+    'firstname' => $_SESSION['user']['firstname'] ?? null,
+    'surname' => $_SESSION['user']['surname'] ?? null,
+    'gender' => $_SESSION['user']['gender'] ?? null,
+    'grade' => $_SESSION['user']['grade'] ?? null,
+    'class' => $_SESSION['user']['class'] ?? null,
+];
 
 $public_route = [
     '/pages/home',

@@ -4,3 +4,4 @@
 <link rel="icon" type="image/png" href="assets/images/logo/inthanin.png">
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/mainspace.css">

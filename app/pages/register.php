@@ -7,110 +7,13 @@ $page_name = "ลงทะเบียน";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require APP_DIR . '/app/components/header.php'; ?>
-    <style>
-        #header_title {
-            font-weight: 700;
-            text-align: center;
-            background-color: #602560;
-            color: #ffffff;
-        }
-
-        #header_subtitle {
-            color: #202040;
-            text-align: center;
-        }
-
-        #header_logo_cover {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem 0 1rem 0;
-        }
-
-        .header_logo {
-            transition: all 500ms ease;
-        }
-
-        .header_logo:hover {
-            transform: translate(-5px, -5px);
-            transition: all 200ms ease;
-            filter: drop-shadow(10px 10px 5px #00000080);
-        }
-
-        #header_logo1 {
-            height: 120px;
-        }
-
-        .form_space {
-            width: 100%;
-            height: fit-content;
-            display: flex;
-            justify-content: center;
-        }
-
-        .form {
-            width: 688px;
-            background-color: #f2f2f2;
-            border-radius: 1rem;
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: repeat(3, auto);
-        }
-
-        .form header {
-            background-color: #602560;
-            color: #FAFAFA;
-            padding: 0.5rem 0.5rem 0.5rem 1rem;
-        }
-
-        .form main {
-            padding: 1rem;
-        }
-
-        .form footer {
-            background-color: #602560;
-            color: #FAFAFA;
-            padding: 0.5rem 0.5rem 0.5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .form input {
-            width: 100%;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            background-color: #fafafa;
-        }
-
-        #submit_button {
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 2rem;
-            border-radius: 0.5rem;
-            font-family: "Chula";
-            border: none;
-            color: #202040;
-            background-color: #FFAA00;
-            transition: all 500ms ease;
-        }
-
-        #submit_button:hover {
-            filter: drop-shadow(0 0 10px #FFAA00);
-            transition: all 200ms ease;
-        }
-    </style>
+    <?php require HEADER; ?>
 </head>
 <body>
-    <?php require APP_DIR . '/app/components/navside.php'; ?>
-
+    <?php require NAVSIDE; ?>
+    
     <div id="main_space">
-        <div id="header_logo_cover">
-            <img src="/assets/images/logo/inthanin.png" alt="Inthanin Logo" id="header_logo1" class="header_logo">
-        </div>
+        <?php require LOGO; ?>
         <h1 id="header_title">ลงทะเบียน</h1>
         <div style="height: 2rem;"></div>
         <div class="form_space">
@@ -121,30 +24,117 @@ $page_name = "ลงทะเบียน";
                     </header>
                     <main>
                         <p>
-                        <strong>* หมายเหตุ :</strong>
-                        เฉพาะสมาชิกคณะสีอินทนิลที่ระบบลงทะเบียนไว้ให้แล้ว สามารถเข้าสู่ระบบด้วยข้อมูลตามที่คณะสีแจ้งได้เลย หากพบปัญหาที่คาดไม่ถึงติดต่อ
-                        <a href="/?route=/pages/recovery">ฝ่ายช่วยเหลือ</a>
+                            <strong>ข้อกำหนดการลงทะเบียน :</strong>
+                            การกรอกเลขประจำตัวนักเรียนและกำหนดชื่อผู้ใช้ทั้งสองอย่างนี้ไม่สามารถซ้ำกับข้อมูลในระบบได้ หากใช้เลขประจำตัวนักเรียนของตัวเองไม่ได้คลิ๊ก
+                            <a href="/?route=/pages/recovery">ฝ่ายช่วยเหลือ</a>
                         </p>
+
+                        <div style="height: 20px;"></div>
+                        <hr>
+                        <div style="height: 20px;"></div>
+
+                        <h2>กรอกข้อมูลส่วนตัว</h2>
+
+                        <div class="doubleInput">
+                            <div class="smallInput">
+                                <h3>ระดับชั้น</h3>
+                                <select name="grade" required>
+                                    <option value="" disabled <?= !isset($_SESSION['register_form']['grade']) ? 'selected' : '' ?>>--เลือกระดับชั้น--</option>
+                                    <?php for ($i = 1; $i <= 6; $i++) {
+                                        $a = $_SESSION['register_form']['grade'] == $i ? 'selected' : '';
+                                        echo "<option value='$i' $a>มัธยมศึกษาปีที่ $i</option>";
+                                    } ?>
+                                </select>
+                            </div>
+                            <div></div>
+                            <div class="smallInput">
+                                <h3>ห้อง</h3>
+                                <select name="class" required>
+                                    <option value="" disabled <?= !isset($_SESSION['register_form']['class']) ? 'selected' : '' ?>>--เลือกห้อง--</option>
+                                    <?php for ($i = 1; $i <= 14; $i++) {
+                                        $a = $_SESSION['register_form']['class'] == $i ? 'selected' : '';
+                                        echo "<option value='$i' $a>ห้อง $i</option>";
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="height: 20px;"></div>
+                        <div class="doubleInput">
+                            <div class="smallInput">
+                                <h3>เพศ</h3>
+                                <select name="gender" required>
+                                    <option value="" disabled <?= !isset($_SESSION['register_form']['gender']) ? 'selected' : '' ?>>--เลือกเพศ--</option>
+                                    <?php if (isset($_SESSION['register_form']['gender'])): ?>
+                                        <option value="0" <?= $_SESSION['register_form']['gender'] == "0" ? 'selected' : '' ?>>ชาย</option>
+                                        <option value="1" <?= $_SESSION['register_form']['gender'] == "1" ? 'selected' : '' ?>>หญิง</option>
+                                    <?php else: ?>
+                                        <option value="0">ชาย</option>
+                                        <option value="1">หญิง</option>
+                                    <?php endif ?>
+                                </select>
+                            </div>
+                            <div></div>
+                            <div class="smallInput">
+                                <h3>คำนำหน้า</h3>
+                                <select name="prefix" required>
+                                    <option value="" disabled <?= !isset($_SESSION['register_form']['prefix']) ? 'selected' : '' ?>>--เลือกคำนำหน้า--</option>
+                                    <?php if (isset($_SESSION['register_form']['prefix'])): ?>
+                                        <option value="เด็กชาย" <?= $_SESSION['register_form']['prefix'] == "เด็กชาย" ? 'selected' : '' ?>>เด็กชาย</option>
+                                        <option value="เด็กหญิง" <?= $_SESSION['register_form']['prefix'] == "เด็กหญิง" ? 'selected' : '' ?>>เด็กหญิง</option>
+                                        <option value="นาย" <?= $_SESSION['register_form']['prefix'] == "นาย" ? 'selected' : '' ?>>นาย</option>
+                                        <option value="นางสาว" <?= $_SESSION['register_form']['prefix'] == "นางสาว" ? 'selected' : '' ?>>นางสาว</option>
+                                        <?php else: ?>
+                                            <option value="เด็กชาย">เด็กชาย</option>
+                                            <option value="เด็กหญิง">เด็กหญิง</option>
+                                            <option value="นาย">นาย</option>
+                                            <option value="นางสาว">นางสาว</option>
+                                    <?php endif ?>
+                                </select>
+                            </div>
+                        </div>
+
                         <div style="height: 20px;"></div>
                         <h3>ชื่อจริง</h3>
-                        <input required name="firstname" type="text" placeholder="กรอกชื่อจริง" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['firstname'] : '' ?>">
+                        <input required name="firstname" type="text" placeholder="กรอกชื่อจริง" maxlength="30" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['firstname'] : '' ?>">
+                        
                         <div style="height: 20px;"></div>
                         <h3>นามสกุล</h3>
-                        <input required name="surname" type="text" placeholder="กรอกนามสกุล" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['surname'] : '' ?>">
+                        <input required name="surname" type="text" placeholder="กรอกนามสกุล" maxlength="30" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['surname'] : '' ?>">
+                        
                         <div style="height: 20px;"></div>
+                        <h3>เลขประจำตัวนักเรียน</h3>
+                        <input required name="student_id" type="text" placeholder="กรอกเลขประจำตัว 5 หลัก" minlength="5" maxlength="5" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['student_id'] : '' ?>">
+                        
+                        <div style="height: 20px;"></div>
+                        <hr>
+                        <div style="height: 20px;"></div>
+
+                        <h2>กำหนดข้อมูลผู้ใช้</h2>
+                        
                         <h3>ชื่อผู้ใช้</h3>
-                        <input required name="username" type="text" placeholder="กรอกชื่อผู้ใช้" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['username'] : '' ?>">
+                        <input required name="username" type="text" placeholder="กำหนดชื่อผู้ใช้" maxlength="64" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['username'] : '' ?>">
+                        
                         <div style="height: 20px;"></div>
-                        <h3>รหัสผ่าน</h3>
-                        <input required name="password" type="password" placeholder="กรอกรหัสผ่าน" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['password'] : '' ?>">
-                </main>
+                        <h3>รหัสผ่าน <button onclick="togglePassword()" type="button" id="togglePasswordButton">แสดงรหัสผ่าน</button></h3>
+                        <input required name="password" type="password" id="password" placeholder="กำหนดรหัสผ่าน" maxlength="128" value="<?= isset($_SESSION['register_form']) ? $_SESSION['register_form']['password'] : '' ?>">
+                    </main>
                     <footer>
-                        <div></div>
-                        <button type="submit" id="submit_button">ยืนยัน</button>
+                        <a href="/?route/pages/recovery">พบปัญหา</a>
+                        <button type="submit" id="submit_button">ลงทะเบียน</button>
                     </footer>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function togglePassword() {
+          const input = document.getElementById("password");
+          const button = document.getElementById('togglePasswordButton');
+          let status = input.type === "password";
+          input.type = status ? "text" : "password";
+          button.textContent = status ? "ซ่อนรหัสผ่าน" : "แสดงรหัสผ่าน";
+        }
+    </script>
 </body>
 </html>

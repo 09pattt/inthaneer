@@ -28,7 +28,7 @@
             </div>
         <?php endif; ?>
     
-        <h3>เรียกดู</h3>
+        <h3>ดูตารางข้อมูล</h3>
         <div class="nav_button" <?php if ($route == "/pages/table/enrolled") {echo 'id="selected"';} ?>>
             <a href="/?route=/pages/table/enrolled">การลงสมัคร</a>
         </div>
@@ -47,19 +47,10 @@
             <div class="nav_button" <?php if ($route == "/pages/insert/athletes") {echo 'id="selected"';} ?>>
                 <a href="/?route=/pages/insert/athletes">ลงสมัครนักกีฬา</a>
             </div>
-            <div class="nav_button" <?php if ($route == "/pages/insert/sports") {echo 'id="selected"';} ?>>
-                <a href="/?route=/pages/insert/sports">เพิ่มรายการแข่ง</a>
-            </div>
             
             <h3>แก้ไขข้อมูล</h3>
             <div class="nav_button" <?php if ($route == "/pages/update") {echo 'id="selected"';} ?>>
-                <a href="/?route=/pages/update">การลงแข่ง</a>
-            </div>
-            <div class="nav_button" <?php if ($route == "/pages/update") {echo 'id="selected"';} ?>>
-                <a href="/?route=/pages/update">นักกีฬา</a>
-            </div>
-            <div class="nav_button" <?php if ($route == "/pages/update") {echo 'id="selected"';} ?>>
-                <a href="/?route=/pages/update">รายการแข่ง</a>
+                <a href="/?route=/pages/update">แก้ไขข้อมูลผู้ใช้/นักกีฬา</a>
             </div>
             
             <h3>ลบข้อมูล</h3>
@@ -68,9 +59,6 @@
             </div>
             <div class="nav_button" <?php if ($route == "/pages/delete") {echo 'id="selected"';} ?>>
                 <a href="/?route=/pages/delete">ถอนตัวนักกีฬา</a>
-            </div>
-            <div class="nav_button" <?php if ($route == "/pages/delete") {echo 'id="selected"';} ?>>
-                <a href="/?route=/pages/delete">ลบรายการแข่ง</a>
             </div>
         <?php endif; ?>
 
@@ -81,7 +69,7 @@
     </main>
 
     <footer>
-        <h3><?= ($isLoggedIn) ? $firstname . ' ' . $surname : 'ยังไม่ได้เข้าสู่ระบบ' ?></h3>
-        <p><?= $username ? '@' . $username : 'ผู้เข้าชม' ?></p>
+        <h3><?= ($isLoggedIn) ? $userInfo['prefix'] . '' .$userInfo['firstname'] . ' ' .$userInfo['surname'] : 'ยังไม่ได้เข้าสู่ระบบ' ?></h3>
+        <p><?= ($isLoggedIn) ? '@' . $userInfo['username'] . ' ' . $userInfo['student_id'] . ' ม.' . $userInfo['grade'] . '/' . $userInfo['class'] : 'ผู้เข้าชม' ?></p>
     </footer>
 </nav>

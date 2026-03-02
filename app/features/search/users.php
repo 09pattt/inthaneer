@@ -26,8 +26,13 @@ try {
             $_SESSION['flash']['message'] = 'ยืนยันตัวตนสำเร็จ สามารถเข้าใช้งานได้ปกติ';
             $_SESSION['user']['logged_in'] = true;
             $_SESSION['user']['username'] = $user['username'];
+            $_SESSION['user']['student_id'] = $user['student_id'];
+            $_SESSION['user']['prefix'] = $user['prefix'];
             $_SESSION['user']['firstname'] = $user['firstname'];
             $_SESSION['user']['surname'] = $user['surname'];
+            $_SESSION['user']['gender'] = $user['gender'];
+            $_SESSION['user']['grade'] = $user['grade'];
+            $_SESSION['user']['class'] = $user['class'];
             unset($_SESSION['signin_form']);
             header("Location: /?route=/features/results");
             exit;

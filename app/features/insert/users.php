@@ -1,17 +1,27 @@
 <?php 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $grade = $_POST['grade'];
+    $class = $_POST['class'];
+    $gender = $_POST['gender'];
+    $prefix = $_POST['prefix'];
     $firstname = $_POST['firstname'];
     $surname = $_POST['surname'];
+    $student_id = $_POST['student_id'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 }
 
 $_SESSION['register_form'] = [
-    'username' => $username,
-    'password' => $password,
+    'grade' => $grade,
+    'class' => $class,
+    'gender' => $gender,
+    'prefix' => $prefix,
     'firstname' => $firstname,
-    'surname' => $surname
+    'surname' => $surname,
+    'student_id' => $student_id,
+    'username' => $username,
+    'password' => $password
 ];
 
 $_SESSION['flash'] = [
@@ -19,13 +29,19 @@ $_SESSION['flash'] = [
 ];
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO users (username, password, firstname, surname) VALUES (:username, :password, :firstname, :surname)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, password, student_id, prefix, firstname, surname, gender, grade, class)
+                          VALUES (:username, :password, :student_id, :prefix, :firstname, :surname, :gender, :grade, :class)");
 
     $stmt->execute([
         'username' => $username,
         'password' => $password,
+        'student_id' => $student_id,
+        'prefix' => $prefix,
         'firstname' => $firstname,
-        'surname' => $surname
+        'surname' => $surname,
+        'gender' => $gender,
+        'grade' => $grade,
+        'class' => $class
     ]);
 
     unset($_SESSION['register_form']);
@@ -37,8 +53,6 @@ try {
 
     if ($code == 23000) {
         $_SESSION['flash']['message'] = 'ไม่ได้นะน้อง มีคนใช้ username นี้ไปแล้วอะสิ';
-    } elseif ($code == 22001) {
-        $_SESSION['flash']['message'] = 'อันนี้ไม่ได้น้องงง ที่กรอกมามันยาวเกิ๊นนนนน';
     } else {
         $_SESSION['flash']['message'] = "ไม่ได้อะน้อง เอาโค้ดนี้ไปบอกพี่พัดนะ -> $code";
     }

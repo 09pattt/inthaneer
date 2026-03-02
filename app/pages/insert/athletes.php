@@ -7,141 +7,94 @@ $page_name = "ลงสมัครนักกีฬา";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require APP_DIR . '/app/components/header.php'; ?>
+    <?php require HEADER; ?>
     <style>
         body {
             background-color: #C9BEFF;
         }
-
-        #header_title {
-            font-weight: 700;
-            text-align: center;
-            background-color: #602560;
-            color: #ffffff;
-        }
-
-        #header_subtitle {
-            color: #202040;
-            text-align: center;
-        }
-
-        #header_logo_cover {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem 0 1rem 0;
-        }
-
-        .header_logo {
-            transition: all 500ms ease;
-        }
-
-        .header_logo:hover {
-            transform: translate(-5px, -5px);
-            transition: all 200ms ease;
-            filter: drop-shadow(10px 10px 5px #00000080);
-        }
-
-        #header_logo1 {
-            height: 120px;
-        }
-
-        .form_space {
-            width: 100%;
-            height: fit-content;
-            display: flex;
-            justify-content: center;
-        }
-
-        .form {
-            width: 688px;
-            background-color: #f2f2f2;
-            border-radius: 1rem;
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: repeat(3, auto);
-        }
-
-        .form header {
-            background-color: #602560;
-            color: #FAFAFA;
-            padding: 0.5rem 0.5rem 0.5rem 1rem;
-        }
-
-        .form main {
-            padding: 1rem;
-        }
-
-        .form footer {
-            background-color: #602560;
-            color: #FAFAFA;
-            padding: 0.5rem 0.5rem 0.5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .form input {
-            width: 100%;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            border: none;
-            background-color: #fafafa;
-        }
-
-        #submit_button {
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 2rem;
-            border-radius: 0.5rem;
-            font-family: "Chula";
-            border: none;
-            color: #202040;
-            background-color: #FFAA00;
-            transition: all 500ms ease;
-        }
-
-        #submit_button:hover {
-            filter: drop-shadow(0 0 10px #FFAA00);
-            transition: all 200ms ease;
+        input, select {
+            opacity: 60%;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <?php require APP_DIR . '/app/components/navside.php'; ?>
+    <?php require NAVSIDE; ?>
 
     <div id="main_space">
-        <div id="header_logo_cover">
-            <img src="/assets/images/logo/inthanin.png" alt="Inthanin Logo" id="header_logo1" class="header_logo">
-        </div>
+        <?php require LOGO; ?>
         <h1 id="header_title">การเพิ่มข้อมูล</h1>
         <div style="height: 2rem;"></div>
         <div class="form_space">
             <div class="form">
-                <form action="/?route=/features/insert/enrolled" method="POST">
+                <form action="/?route=/features/insert/athletes" method="POST">
                     <header>
                         <h1>ลงสมัครนักกีฬา</h1>
                     </header>
                     <main>
                         <p>
-                        <strong>อ่านก่อนนะ! :</strong>
-                        รหัสประจำตัวนักเรียนกับข้อมูลใช้ได้เพียงหนึ่งรหัสต่อนักกีฬาหนึ่งคนเท่านั้น
+                            <strong>อ่านก่อนนะ! :</strong>
+                            ข้อมูลที่ใช้ในการลงสมัครนักกีฬาไม่สามารถเปลี่ยนแปลงได้ เว้นแต่จะเปลี่ยนข้อมูลของผู้ใช้ และข้อมูลนักกีฬากับข้อมูลผู้ใช้จะเป็นข้อมูลเดียวกันเสมอ
                         </p>
+                        <p>
+                            <strong>ที่สำคัญ!</strong>
+                            ข้อมูลสามารถมีได้เพียงหนึ่งรหัสประจำตัวนักเรียนต่อหนึ่งข้อมูลผู้ใช้ต่อหนึ่งข้อมูลนักกีฬาเท่านั้น
+                        </p>
+
                         <div style="height: 20px;"></div>
-                        <h3>รหัสประจำตัวนักเรียนของนักกีฬา</h3>
-                        <input required name="student_id" type="text" placeholder="กรอกรหัสประจำตัวนักเรียนของนักกีฬาที่จะลงสมัคร">
+                        <hr>
+                        <div style="height: 20px;"></div>
+
+                        <h2>ตรวจสอบข้อมูลส่วนตัว</h2>
+
+                        <div class="doubleInput">
+                            <div class="smallInput">
+                                <h3>ระดับชั้น</h3>
+                                <select name="grade" required readonly>
+                                    <option value="<?= $userInfo['grade'] ?>" selected>มัธยมศึกษาปีที่ <?= $userInfo['grade'] ?></option>
+                                </select>
+                            </div>
+                            <div></div>
+                            <div class="smallInput">
+                                <h3>ห้อง</h3>
+                                <select name="class" required readonly>
+                                    <option value="<?= $userInfo['class'] ?>" selected>ห้อง <?= $userInfo['class'] ?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="height: 20px;"></div>
+                        <div class="doubleInput">
+                            <div class="smallInput">
+                                <h3>เพศ</h3>
+                                <select name="gender" required readonly>
+                                    <option value="<?= $userInfo['gender'] ?>" selected><?= $userInfo['gender'] == 0 ? 'ชาย' : 'หญิง' ?></option>
+                                </select>
+                            </div>
+                            <div></div>
+                            <div class="smallInput">
+                                <h3>คำนำหน้า</h3>
+                                <select name="prefix" required readonly>
+                                    <option value="<?= $userInfo['prefix'] ?>" selected><?= $userInfo['prefix'] ?></option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div style="height: 20px;"></div>
                         <h3>ชื่อจริง</h3>
-                        <input required name="sport_code" type="text" placeholder="กรอกชื่อจริงนักกีฬา" value="<?= $firstname ?>">
+                        <input required readonly name="firstname" type="text" placeholder="กรอกชื่อจริง" maxlength="30" value="<?= $userInfo['firstname'] ?>">
+                        
                         <div style="height: 20px;"></div>
-                        <h3>ชื่อนามสกุล</h3>
-                        <input required name="sport_code" type="text" placeholder="กรอกชื่อนามสกุลนักกีฬา" value="<?= $surname ?>">
+                        <h3>นามสกุล</h3>
+                        <input required readonly name="surname" type="text" placeholder="กรอกนามสกุล" maxlength="30" value="<?= $userInfo['surname'] ?>">
+                        
                         <div style="height: 20px;"></div>
+                        <h3>เลขประจำตัวนักเรียน</h3>
+                        <input required readonly name="student_id" type="text" placeholder="กรอกเลขประจำตัว 5 หลัก" minlength="5" maxlength="5" value="<?= $userInfo['student_id'] ?>">
                     </main>
                     <footer>
-                        <a href="/?route=/pages/recovery">ฝ่ายช่วยเหลือ</a>
-                        <button type="submit" id="submit_button">ยืนยัน</button>
+                        <a href="/?route/pages/recovery">พบปัญหา</a>
+                        <button type="submit" id="submit_button">ลงสมัคร</button>
                     </footer>
                 </form>
             </div>

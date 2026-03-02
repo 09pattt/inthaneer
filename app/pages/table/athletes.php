@@ -43,7 +43,7 @@ $interval = 1;
                 <tr class="apply_rows_pattern">
                     <td><?= $interval ?></td>
                     <td><?= $row['student_id'] ?></td>
-                    <td><?= $row['title'] ?></td>
+                    <td><?= $row['prefix'] ?></td>
                     <td><?= $row['firstname'] ?></td>
                     <td><?= $row['surname'] ?></td>
                     <td><?= ($row['gender'] == 0) ? 'ชาย' : 'หญิง' ?></td>
