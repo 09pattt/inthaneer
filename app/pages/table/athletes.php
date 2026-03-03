@@ -2,7 +2,7 @@
 
 $page_name = "รายชื่อนักกีฬา";
 
-$athleteStmt = $pdo->query("SELECT * FROM athletes");
+$athleteStmt = $pdo->query("SELECT u.student_id, u.prefix, u.firstname, u.surname, u.gender, u.grade, u.class FROM athletes a JOIN users u ON a.student_id = u.student_id");
 
 $interval = 1;
 
@@ -50,9 +50,7 @@ $interval = 1;
                     <td><?= $row['grade'] ?></td>
                     <td><?= $row['class'] ?></td>
                 </tr>
-                <?php
-                    $interval++;
-                ?>
+                <?php $interval++; ?>
             <?php endwhile; ?>
         </table>
     </div>

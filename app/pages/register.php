@@ -14,7 +14,6 @@ $page_name = "ลงทะเบียน";
     
     <div id="main_space">
         <?php require LOGO; ?>
-        <h1 id="header_title">ลงทะเบียน</h1>
         <div style="height: 2rem;"></div>
         <div class="form_space">
             <div class="form">

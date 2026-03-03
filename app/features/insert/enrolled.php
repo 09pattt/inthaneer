@@ -6,7 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $_SESSION['flash'] = [
-    'origin' => '/pages/insert/enrolled'
+    'origin' => '/pages/insert/enrolled',
+    'next' => '/pages/profile'
 ];
 
 $athleteStmt = $pdo->prepare("SELECT * FROM athletes WHERE student_id = :student_id");

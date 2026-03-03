@@ -25,7 +25,8 @@ $_SESSION['register_form'] = [
 ];
 
 $_SESSION['flash'] = [
-    'origin' => '/pages/register'
+    'origin' => '/pages/register',
+    'next' => '/pages/signin'
 ];
 
 try {
@@ -43,6 +44,9 @@ try {
         'grade' => $grade,
         'class' => $class
     ]);
+
+    $_SESSION['user']['username'] = $username;
+    $_SESSION['user']['password'] = $password;
 
     unset($_SESSION['register_form']);
     $_SESSION['flash']['message'] = 'ได้แล้วครับน้อง ตอนนี้ก็สามารถเข้าสู่ระบบด้วยบัญชีนี้ได้แล้ว';

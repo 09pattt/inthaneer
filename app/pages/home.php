@@ -49,18 +49,6 @@ $page_name = "หน้าแรก";
         <div class="banner banner2">
             <h1 class="banner_text">เตรียมฯน้อม</h1>
         </div>
-        <div class="banner banner1">
-            <h1 class="banner_text">INTHANIN</h1>
-        </div>
-        <div class="banner banner2">
-            <h1 class="banner_text">TRIAM'NOM</h1>
-        </div>
-        <div class="banner banner1">
-            <h1 class="banner_text">อินทนิล</h1>
-        </div>
-        <div class="banner banner2">
-            <h1 class="banner_text">เตรียมฯน้อม</h1>
-        </div>
         <?php require FOOTER; ?>
     </div>
 </body>

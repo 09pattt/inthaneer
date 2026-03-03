@@ -33,7 +33,7 @@
 .form header {
     background-color: #602560;
     color: #FAFAFA;
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .form main {
@@ -43,7 +43,7 @@
 .form footer {
     background-color: #602560;
     color: #FAFAFA;
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,6 +68,66 @@
 .doubleInput {
     display: grid;
     grid-template-columns: 1fr 1rem 1fr;
+}
+
+.blue_button {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 2rem;
+    border-radius: 0.5rem;
+    font-family: "Chula";
+    border: none;
+    color: #f2f2f2;
+    background-color: #008BFF;
+    transition: all 500ms ease;
+}
+
+.blue_button:hover {
+    filter: drop-shadow(0 0 10px #008BFFAA);
+    transition: all 200ms ease;
+}
+
+.red_button {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 2rem;
+    border-radius: 0.5rem;
+    font-family: "Chula";
+    border: none;
+    color: #f2f2f2;
+    background-color: #FF6464;
+    transition: all 500ms ease;
+}
+
+.red_button:hover {
+    filter: drop-shadow(0 0 10px #FF6464AA);
+    transition: all 200ms ease;
+}
+
+.yellow_button {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 2rem;
+    border-radius: 0.5rem;
+    font-family: "Chula";
+    border: none;
+    color: #f2f2f2;
+    background-color: #FFAA00;
+    transition: all 500ms ease;
+}
+
+.yellow_button:hover {
+    filter: drop-shadow(0 0 10px #FFAA00AA);
+    transition: all 200ms ease;
 }
 
 #togglePasswordButton {

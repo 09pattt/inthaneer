@@ -23,7 +23,6 @@ $page_name = "ลงสมัครนักกีฬา";
 
     <div id="main_space">
         <?php require LOGO; ?>
-        <h1 id="header_title">การเพิ่มข้อมูล</h1>
         <div style="height: 2rem;"></div>
         <div class="form_space">
             <div class="form">

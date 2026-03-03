@@ -16,6 +16,11 @@ nav header {
     background-color: #202040;
     width: 100%;
     height: fit-content;
+    transition: all 400ms ease;
+}
+
+nav header:hover {
+    filter: drop-shadow(0 5px 10px #202040);
 }
 
 nav main {
@@ -31,6 +36,41 @@ nav footer {
     width: 100%;
     height: fit-content;
     background-color: #202040;
+    transition: all 400ms ease;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+nav footer:hover {
+    filter: drop-shadow(0 -5px 10px #202040);
+}
+
+#profile_link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+#footer_img_cover {
+    height: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#footer_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#footer_content {
+    padding-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 nav footer h3 {

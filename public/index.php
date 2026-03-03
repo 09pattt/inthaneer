@@ -14,12 +14,15 @@ define('DATALISTS', APP_DIR . '/app/components/datalists.php');
 
 session_start();
 
-$route = $_GET['route'] ?? '/pages/home';
+$route = $_GET['route'] ?? '/pages/profile';
 
 $isLoggedIn = $_SESSION['user']['logged_in'] ?? false;
 
+$isAthlete = $_SESSION['user']['is_athlete'] ?? false;
+
 $userInfo = [
     'username' => $_SESSION['user']['username'] ?? null,
+    'password' => $_SESSION['user']['password'] ?? null,
     'student_id' => $_SESSION['user']['student_id'] ?? null,
     'prefix' => $_SESSION['user']['prefix'] ?? null,
     'firstname' => $_SESSION['user']['firstname'] ?? null,

@@ -11,22 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $_SESSION['flash'] = [
-    'origin' => '/pages/insert/athletes'
+    'origin' => '/pages/insert/athletes',
+    'next' => '/pages/profile'
 ];
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO athletes (student_id, prefix, firstname, surname, gender, grade, class)
-                          VALUES (:student_id, :prefix, :firstname, :surname, :gender, :grade, :class)");
+    $stmt = $pdo->prepare("INSERT INTO athletes (student_id) VALUES (:student_id)");
 
     $stmt->execute([
-        'student_id' => $student_id,
-        'prefix' => $prefix,
-        'firstname' => $firstname,
-        'surname' => $surname,
-        'gender' => $gender,
-        'grade' => $grade,
-        'class' => $class
+        'student_id' => $student_id
     ]);
+
+    $_SESSION['user']['is_athlete'] = true;
 
     $_SESSION['flash']['message'] = 'เย่ สวัสดีนักกีฬาอินทนิล เลิฟๆ';
     

@@ -12,16 +12,17 @@ $page_name = "เข้าร่วมการแข่ง";
         body {
             background-color: #C9BEFF;
         }
+        input {
+            color: #888;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
     <?php require APP_DIR . '/app/components/navside.php'; ?>
 
     <div id="main_space">
-        <div id="header_logo_cover">
-            <img src="/assets/images/logo/inthanin.png" alt="Inthanin Logo" id="header_logo1" class="header_logo">
-        </div>
-        <h1 id="header_title">การเพิ่มข้อมูล</h1>
+        <?php require LOGO; ?>
         <div style="height: 2rem;"></div>
         <div class="form_space">
             <div class="form">
@@ -40,11 +41,11 @@ $page_name = "เข้าร่วมการแข่ง";
                         <hr>
                         <div style="height: 20px;"></div>
                         
-                        <h3>รหัสประจำตัวนักเรียนของนักกีฬา</h3>
-                        <input required list="student_id" name="student_id" placeholder="ใส่รหัสประจำตัวนักเรียนของนักกีฬา" minlength="5" maxlength="5">
+                        <h3>รหัสประจำตัวนักเรียน</h3>
+                        <input required readonly list="student_id" name="student_id" placeholder="ใส่รหัสประจำตัวนักเรียนของนักกีฬา" minlength="5" maxlength="5" value="<?= $userInfo['student_id'] ?>">
 
                         <div style="height: 20px;"></div>
-                        <h3>รหัสรายการแข่งขัน</h3>
+                        <h3>รายการแข่งขัน</h3>
                         <select required name="sport_id">
                             <option value="" selected disabled>--เลือกรายการแข่งขัน--</option>
                             <?php

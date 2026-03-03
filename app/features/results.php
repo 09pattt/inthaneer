@@ -101,7 +101,7 @@ $page_name = "ผลลัพธ์ Query";
             <img src="/assets/images/elements/happy.png" alt="Happy guy" id="top_img">
         </div>
         <div id="return_button_cover">
-            <a href="/" id="return_button">กลับหน้าแรก</a>
+            <a href="/?route=<?= $_SESSION['flash']['next'] ?>" id="return_button">ดำเนินการต่อ</a>
         </div>
     </div>
 </body>
