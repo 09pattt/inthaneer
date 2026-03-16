@@ -48,7 +48,7 @@ $page_name = "เข้าร่วมการแข่ง";
                         <h3>รายการแข่งขัน</h3>
                         <select required name="sport_id">
                             <option value="" selected disabled>--เลือกรายการแข่งขัน--</option>
-                            <?php
+                            <?php 
                                 $stmt = $pdo->query("SELECT * FROM sports");
                                 $stmt->execute();
                                 while ($sport = $stmt->fetch()) {
